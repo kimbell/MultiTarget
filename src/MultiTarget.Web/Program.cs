@@ -1,4 +1,12 @@
+#if NET7_0
+// use alias to make old look like new for other code
+using SampleService = MultiTarget.Web.Services.SampleServiceOld;
+#else
+using MultiTarget.Web.Services;
+#endif
+
 var builder = WebApplication.CreateBuilder(args);
+
 
 // Add services to the container.
 
@@ -6,6 +14,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddSingleton<SampleService>();
 
 var app = builder.Build();
 

@@ -8,4 +8,14 @@
 		<PackageReference Include="Swashbuckle.AspNetCore" />
 	</ItemGroup>
 
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net7.0' ">
+		<Compile Remove="**\*.net8.cs" />
+		<None Include="**\*.net8.cs" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net8.0' ">
+		<Compile Remove="**\*.net7.cs" />
+		<None Include="**\*.net7.cs" />
+	</ItemGroup>
+
 </Project>
