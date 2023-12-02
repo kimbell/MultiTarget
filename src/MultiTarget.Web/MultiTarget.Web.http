@@ -1,0 +1,6 @@
+@MultiTarget.Web_HostAddress = http://localhost:5288
+
+GET {{MultiTarget.Web_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
